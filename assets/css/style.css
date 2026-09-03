@@ -1,0 +1,114 @@
+:root {
+  --brand-primary: #2563eb;
+  --brand-dark: #1e3a8a;
+  --sidebar-width: 240px;
+}
+
+body {
+  background: #f4f6f9;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Navbar ---------- */
+.app-navbar {
+  background: linear-gradient(90deg, var(--brand-dark), var(--brand-primary));
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* ---------- Auth Pages ---------- */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  padding: 20px;
+}
+.auth-card {
+  max-width: 460px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
+}
+.auth-card .card-header {
+  background: var(--brand-primary);
+  color: #fff;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 28px 24px 18px;
+  text-align: center;
+}
+
+/* ---------- Layout with Sidebar ---------- */
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: #101c34;
+  overflow-y: auto;
+  z-index: 1030;
+  transition: transform .25s ease;
+}
+.sidebar-inner { padding: 16px 10px; }
+.sidebar .nav-link {
+  color: #c7d1e0;
+  padding: 11px 14px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .93rem;
+}
+.sidebar .nav-link i { font-size: 1.05rem; width: 18px; }
+.sidebar .nav-link:hover { background: rgba(255,255,255,.08); color: #fff; }
+.sidebar .nav-link.active { background: var(--brand-primary); color: #fff; }
+.sidebar-backdrop { display: none; }
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 24px;
+  min-height: calc(100vh - 56px);
+}
+
+@media (max-width: 991.98px) {
+  .sidebar { transform: translateX(-100%); top: 0; padding-top: 66px; }
+  .sidebar.show { transform: translateX(0); }
+  .main-content { margin-left: 0; }
+  .sidebar-backdrop.show {
+    display: block; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 1025;
+  }
+}
+
+/* ---------- Cards / Stats ---------- */
+.stat-card {
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.stat-card .stat-icon { font-size: 2rem; opacity: .85; }
+.stat-card .stat-value { font-size: 1.9rem; font-weight: 700; }
+.bg-grad-blue { background: linear-gradient(135deg,#1d4ed8,#3b82f6); }
+.bg-grad-red { background: linear-gradient(135deg,#b91c1c,#ef4444); }
+.bg-grad-yellow { background: linear-gradient(135deg,#b45309,#f59e0b); }
+.bg-grad-cyan { background: linear-gradient(135deg,#0369a1,#0ea5e9); }
+.bg-grad-green { background: linear-gradient(135deg,#15803d,#22c55e); }
+.bg-grad-gray { background: linear-gradient(135deg,#4b5563,#9ca3af); }
+.bg-grad-purple { background: linear-gradient(135deg,#6b21a8,#a855f7); }
+
+.card { border-radius: 12px; border: 1px solid #e9edf3; }
+.table thead th { font-size: .78rem; text-transform: uppercase; color: #64748b; border-bottom-width: 1px; }
+.status-badge, .priority-badge { font-size: .78rem; padding: 6px 10px; border-radius: 20px; font-weight: 500; }
+
+.ticket-number { font-family: 'Courier New', monospace; font-weight: 700; color: var(--brand-primary); }
+
+.password-toggle { cursor: pointer; }
+
+@media print {
+  .sidebar, .app-navbar, .no-print { display: none !important; }
+  .main-content { margin-left: 0 !important; }
+}
