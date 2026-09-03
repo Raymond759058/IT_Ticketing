@@ -4,10 +4,10 @@
  * Update these values to match your XAMPP / cPanel MySQL credentials
  */
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'it_ticketing_system');
-define('DB_USER', 'root');
-define('DB_PASS', 'Raymond759058');
-define('DB_PORT', '3307');
+define('DB_NAME', 'synergy1_raymondtanzijian_it_ticketing_system');
+define('DB_USER', 'synergy1_yenping');
+define('DB_PASS', 'R.zb0ZwEuGZ}*fW2');
+define('DB_PORT', '3306');
 
 try {
     $pdo = new PDO(
